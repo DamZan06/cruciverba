@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cruciverba Premium</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header / Toolbar -->
+        <header class="header">
+            <div class="hint-container">
+                <span id="active-hint">Seleziona una definizione</span>
+            </div>
+            <div class="actions">
+                <div class="dropdown">
+                    <button id="btn-settings" class="icon-btn" title="Lunghezza (numero parole)">
+                        <span class="material-icons">settings</span>
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="#" data-words="10">10 Parole</a>
+                        <a href="#" data-words="15">15 Parole</a>
+                        <a href="#" data-words="20">20 Parole</a>
+                        <a href="#" data-words="30">30 Parole</a>
+                        <a href="#" data-words="50">50 Parole</a>
+                    </div>
+                </div>
+                <button id="btn-refresh" class="icon-btn" title="Nuovo cruciverba">
+                    <span class="material-icons">refresh</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="left-panel">
+                <div class="grid-wrapper">
+                    <div id="crossword-grid" class="crossword-grid">
+                        <!-- Grid will be generated here -->
+                    </div>
+                </div>
+
+                <!-- Buttons -->
+                <div class="control-buttons">
+                    <button id="btn-check" class="primary-btn">
+                        <span class="material-icons">check_circle_outline</span> Controlla
+                    </button>
+                    <button id="btn-reveal-word" class="primary-btn">
+                        <span class="material-icons">lightbulb_outline</span> Svela Parola
+                    </button>
+                    <button id="btn-reveal-all" class="primary-btn">
+                        <span class="material-icons">visibility</span> Svela Tutto
+                    </button>
+                </div>
+            </div>
+
+            <div class="right-panel">
+                <!-- Clues Lists -->
+                <div class="clues-container">
+                    <div class="clues-column">
+                        <div class="clues-title">ORIZZONTALI</div>
+                        <div id="horizontal-clues" class="clues-list"></div>
+                    </div>
+                    <div class="clues-column">
+                        <div class="clues-title">VERTICALI</div>
+                        <div id="vertical-clues" class="clues-list"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modals -->
+    <div id="modal-reveal-all" class="modal">
+        <div class="modal-content">
+            <h2>Rivela Tutto</h2>
+            <p>Sei sicuro di voler vedere tutta la soluzione?</p>
+            <div class="modal-actions">
+                <button class="btn-cancel" onclick="closeModal('modal-reveal-all')">Annulla</button>
+                <button class="btn-danger" id="confirm-reveal-all">Rivela</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-success" class="modal">
+        <div class="modal-content">
+            <h2 class="success-title"><span class="material-icons">emoji_events</span> Vittoria!</h2>
+            <p>Complimenti! Hai completato il cruciverba senza alcun errore. Ottimo lavoro!</p>
+            <div class="modal-actions">
+                <button class="btn-primary" onclick="closeModal('modal-success')">Chiudi</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="toast" class="toast"></div>
+
+    <script src="dictionary.js"></script>
+    <script src="generator.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
