@@ -33,6 +33,7 @@ function init() {
         }
     }
 
+    
     btnSubmit.addEventListener('click', checkPwd);
     inputPwd.addEventListener('keydown', (e) => {
         if (e.key === 'Enter') checkPwd();
