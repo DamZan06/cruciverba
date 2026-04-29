@@ -22,7 +22,7 @@ function init() {
     const errorMsg = document.getElementById('password-error');
 
     function checkPwd() {
-        if (inputPwd.value === "cruciverba2026") {
+        if (inputPwd.value === "Cruciverba") {
             passwordModal.classList.remove('show');
             setupEventListeners();
             loadCrossword();
