@@ -181,7 +181,9 @@ function createClueElement(w) {
 }
 
 function onCellFocused(x, y, input) {
-    input.select();
+    setTimeout(() => {
+        input.selectionStart = input.selectionEnd = input.value.length;
+    }, 0);
     
     const words = crossword.words.filter(w => {
         if (w.isHorizontal) return w.y === y && x >= w.x && x < w.x + w.word.length;
