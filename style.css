@@ -159,22 +159,28 @@ body {
 }
 
 .crossword-grid {
-    display: inline-flex;
+    display: flex;
     flex-direction: column;
     gap: 2px;
     text-align: left;
     vertical-align: top;
+    width: 100%;
+    align-items: center;
 }
 
 .grid-row {
     display: flex;
     gap: 2px;
     flex-shrink: 0;
+    width: 100%;
+    justify-content: center;
 }
 
 .grid-cell {
-    width: 38px;
-    height: 38px;
+    flex: 1 1 0;
+    aspect-ratio: 1 / 1;
+    min-width: 24px;
+    max-width: 42px;
     position: relative;
     flex-shrink: 0;
 }
