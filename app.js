@@ -16,13 +16,29 @@ const btnRevealWord = document.getElementById('btn-reveal-word');
 const btnRevealAll = document.getElementById('btn-reveal-all');
 
 function init() {
-    const pwd = prompt("Sito Protetto. Inserisci la password:");
-    if (pwd !== "cruciverba2026") {
-        document.body.innerHTML = "<h1 style='color: white; text-align: center; margin-top: 50px; font-family: sans-serif;'>Accesso Negato</h1>";
-        return;
+    const passwordModal = document.getElementById('modal-password');
+    const btnSubmit = document.getElementById('btn-submit-password');
+    const inputPwd = document.getElementById('input-password');
+    const errorMsg = document.getElementById('password-error');
+
+    function checkPwd() {
+        if (inputPwd.value === "cruciverba2026") {
+            passwordModal.classList.remove('show');
+            setupEventListeners();
+            loadCrossword();
+        } else {
+            errorMsg.style.display = 'block';
+            inputPwd.value = '';
+            inputPwd.focus();
+        }
     }
-    setupEventListeners();
-    loadCrossword();
+
+    btnSubmit.addEventListener('click', checkPwd);
+    inputPwd.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') checkPwd();
+    });
+    
+    setTimeout(() => inputPwd.focus(), 100);
 }
 
 function setupEventListeners() {
