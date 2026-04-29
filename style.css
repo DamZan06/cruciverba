@@ -22,15 +22,14 @@ body {
     font-family: 'Roboto', sans-serif;
     background-color: var(--bg-dark);
     color: var(--text-main);
-    display: flex;
-    justify-content: center;
     min-height: 100vh;
+    margin: 0;
 }
 
 .app-container {
     width: 100%;
-    max-width: 1400px;
-    height: 100vh;
+    margin: 0 auto;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
 }
@@ -122,27 +121,31 @@ body {
     flex-direction: row;
     gap: 24px;
     flex: 1;
-    overflow: hidden;
+    align-items: flex-start;
 }
 
 .left-panel {
-    flex: 2;
+    flex: 1 1 auto;
     display: flex;
     flex-direction: column;
     gap: 16px;
     min-width: 0;
+    align-items: center;
 }
 
 .right-panel {
     flex: 1;
     display: flex;
     flex-direction: column;
-    overflow-y: auto;
     background-color: var(--bg-card);
     border-radius: 16px;
     padding: 20px;
     border: 1px solid var(--border-color);
     min-width: 320px;
+    position: sticky;
+    top: 80px;
+    max-height: calc(100vh - 100px);
+    overflow-y: auto;
 }
 
 .grid-wrapper {
@@ -150,28 +153,29 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.12);
     border-radius: 16px;
     padding: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: auto;
-    flex: 1;
+    display: inline-block;
+    min-width: 100%;
+    text-align: center;
 }
 
 .crossword-grid {
-    display: flex;
+    display: inline-flex;
     flex-direction: column;
     gap: 2px;
+    text-align: left;
 }
 
 .grid-row {
     display: flex;
     gap: 2px;
+    flex-shrink: 0;
 }
 
 .grid-cell {
     width: 38px;
     height: 38px;
     position: relative;
+    flex-shrink: 0;
 }
 
 .grid-cell.black {
